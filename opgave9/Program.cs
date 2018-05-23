@@ -10,15 +10,21 @@ namespace opgave9
     {
         static void Main(string[] args)
         {
+            ArrayResultat b;
+            b = ArrayBeregn(new int[] { 2, 4, 6 });
+            Console.WriteLine(b.sum);
 
-            Console.WriteLine(beregn(1, 2, 3, 4));
             System.Console.ReadLine();
 
         }
 
-        static ArrayResultat(int[] arrayTal)
+        static ArrayResultat ArrayBeregn(int[] arrayTal)
         {
-            return
+            ArrayResultat a;
+            a.sum = 10;
+            a.gennemsnit = 20;
+
+            return a;
         }
 
         struct ArrayResultat
