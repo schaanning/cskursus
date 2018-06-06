@@ -25,16 +25,16 @@ namespace opgave13
 
         public int Grundlinie
         {
-            get; // { return _grundlinje; }
-            private set; // { _grundlinje = value; }
+            get { return _grundlinje; }
+            private set { _grundlinje = value; }
         }
 
         private int _højde;
 
         public int Højde
         {
-            get; // { return _højde; }
-            private set; // { _højde = value; }
+            get { return _højde; }
+            private set { _højde = value; }
         }
 
         public Trekant(int grundlinje, int højde)
