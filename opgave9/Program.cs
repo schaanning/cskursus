@@ -11,8 +11,9 @@ namespace opgave9
         static void Main(string[] args)
         {
             ArrayResultat b;
-            b = ArrayBeregn(new int[] { 2, 4, 6 });
+            b = ArrayBeregn(new int[] { 4, 2, 6 });
             Console.WriteLine(b.sum);
+            Console.WriteLine(b.gennemsnit);
 
             System.Console.ReadLine();
 
@@ -21,8 +22,9 @@ namespace opgave9
         static ArrayResultat ArrayBeregn(int[] arrayTal)
         {
             ArrayResultat a;
-            a.sum = 10;
-            a.gennemsnit = 20;
+            Array.Sort(arrayTal);
+            a.sum = arrayTal.Sum();
+            a.gennemsnit = a.sum / arrayTal.Length;
 
             return a;
         }
