@@ -10,15 +10,13 @@ namespace opgave17
     {
         static void Main(string[] args)
         {
-            Person p1 = new Person() { Fornavn = "Rolf", Efternavn = "Schaanning"};
-
-            Elev e1 = new Elev() { Fornavn = "Asker", Efternavn = "Rasmussen", Klasselokale = "Lakale1" };
-
+            Person     p1 = new Person()     { Fornavn = "Rolf",   Efternavn = "Schaanning" };
+            Elev       e1 = new Elev()       { Fornavn = "Asker",  Efternavn = "Rasmussen",   Klasselokale = "Lakale1" };
             Instruktør i1 = new Instruktør() { Fornavn = "Karina", Efternavn = "Wiedenhofer", NøgleId = 4 };
 
             Console.WriteLine(p1.FuldNavn());
             Console.WriteLine(e1.FuldNavn());
-            Console.WriteLine(i1.FuldNavn());
+            Console.WriteLine(i1.FuldNavnInstruktør());
 
             Console.ReadLine();
         }
@@ -48,7 +46,7 @@ namespace opgave17
     class Instruktør : Person
     {           
         public int NøgleId { get; set; }
-        public string FuldNavn()
+        public string FuldNavnInstruktør()
         {
             return Fornavn + " " + Efternavn + " er instruktør";
         }
