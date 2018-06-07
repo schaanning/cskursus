@@ -27,7 +27,7 @@ namespace opgave17
         public string Fornavn { get; set; }
         public string Efternavn { get; set; }
 
-        public string FuldNavn ()
+        public virtual string FuldNavn ()
         {
             return Fornavn + " " + Efternavn + " er en person";
         }
@@ -37,7 +37,7 @@ namespace opgave17
     {
         public string Klasselokale { get; set; }
 
-        public string FuldNavn()
+        public override string FuldNavn()
         {
             return Fornavn + " " + Efternavn + " er elev";
         }
