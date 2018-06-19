@@ -11,10 +11,16 @@ namespace opgave30
         static void Main(string[] args)
         {
             Person1 p1 = new Person1();
-            p1.TilføjPerson(new Instruktør() { Navn = "Rolf", Alder = 42, InstruktørNummer = 101 });
-            p1.TilføjPerson(new Kursist() { Navn = "Karina", Alder = 47, KursistNummer = 201 });
+            for (int i = 0; i < 10000; i++)
+            {
+                p1.TilføjPerson(new Instruktør() { Navn = "Rolf", Alder = 42, InstruktørNummer = 101, Løn = 10000 });
+                p1.TilføjPerson(new Kursist() { Navn = "Karina", Alder = 47, KursistNummer = 201, KursusPris = 2500 });
+            }
 
             p1.Vis();
+            p1.Slet();
+
+            p1 = null;
 
             Console.ReadLine();
         }
@@ -24,28 +30,45 @@ namespace opgave30
     {
         public string Navn { get; set; }
         public int Alder { get; set; }
-        public virtual int Nummer ()
+        public virtual void Vis()
         {
-
-            return 0;
+        }
+        public virtual void Slet()
+        {
         }
     }
 
     public class Kursist : Person
     {
         public int KursistNummer { get; set; }
-        public override int Nummer()
+        public int KursusPris { get; set; }
+        public override void Vis()
         {
-            return KursistNummer;
+            Console.WriteLine("Kursist: " + this.Navn);
+            Console.WriteLine("Alder: " + this.Alder);
+            Console.WriteLine("Kursistnummer: " + this.KursistNummer);
+            Console.WriteLine("Kursus pris: " + this.KursusPris);
+        }
+        public override void Slet()
+        {
+            //this = null;
         }
     }
 
     public class Instruktør : Person
     {
         public int InstruktørNummer { get; set; }
-        public override int Nummer()
+        public int Løn { get; set; }
+        public override void Vis()
         {
-            return InstruktørNummer;
+            Console.WriteLine("Instruktør: " + this.Navn);
+            Console.WriteLine("Alder: " + this.Alder);
+            Console.WriteLine("Instruktørnummer: " + this.InstruktørNummer);
+            Console.WriteLine("Instruktør løn: " + this.Løn);
+        }
+        public override void Slet()
+        {
+            //this = null;
         }
     }
 
@@ -57,15 +80,25 @@ namespace opgave30
         {
             PersonListe.Add(p);
         }
+
         public void Vis()
         {
             foreach (var item in PersonListe)
             {
-                Console.WriteLine(item.Navn + " " + item.Alder + " " + item.Nummer());
+                item.Vis();
+                Console.WriteLine();
             }
         }
 
-
+        public void Slet()
+        {
+            foreach (var item in PersonListe)
+            {
+                item.Slet();
+            }
+            PersonListe.Clear();
+            PersonListe.TrimExcess();
+        }
     }
 
 }
