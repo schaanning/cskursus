@@ -21,6 +21,7 @@ namespace opgave30
             p1.Slet();
 
             p1 = null;
+            System.GC.Collect();
 
             Console.ReadLine();
         }
@@ -33,9 +34,9 @@ namespace opgave30
         public virtual void Vis()
         {
         }
-        public virtual void Slet()
-        {
-        }
+        //public virtual void Slet()
+        //{
+        //}
     }
 
     public class Kursist : Person
@@ -49,10 +50,10 @@ namespace opgave30
             Console.WriteLine("Kursistnummer: " + this.KursistNummer);
             Console.WriteLine("Kursus pris: " + this.KursusPris);
         }
-        public override void Slet()
-        {
-            //this = null;
-        }
+        //    public override void Slet()
+        //    {
+        //        //this = null;
+        //    }
     }
 
     public class Instruktør : Person
@@ -66,10 +67,10 @@ namespace opgave30
             Console.WriteLine("Instruktørnummer: " + this.InstruktørNummer);
             Console.WriteLine("Instruktør løn: " + this.Løn);
         }
-        public override void Slet()
-        {
-            //this = null;
-        }
+        //public override void Slet()
+        //{
+        //    //this = null;
+        //}
     }
 
     public class Person1
@@ -92,12 +93,14 @@ namespace opgave30
 
         public void Slet()
         {
-            foreach (var item in PersonListe)
-            {
-                item.Slet();
-            }
-            PersonListe.Clear();
-            PersonListe.TrimExcess();
+            //foreach (var item in PersonListe)
+            //{
+            //    item.Slet();
+            //}
+            //PersonListe.Clear();
+            //PersonListe.TrimExcess();
+            this.PersonListe = new List<Person>();
+
         }
     }
 
