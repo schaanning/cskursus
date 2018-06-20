@@ -11,19 +11,19 @@ namespace opgave30
         static void Main(string[] args)
         {
             Person1 p1 = new Person1();
-            for (int i = 0; i < 5000; i++)
+            for (int i = 0; i < 2_000_000; i++)
             {
                 p1.TilføjPerson(new Instruktør() { Navn = "Rolf", Alder = 42, InstruktørNummer = 101, Løn = 10000 });
                 p1.TilføjPerson(new Kursist() { Navn = "Karina", Alder = 47, KursistNummer = 201, KursusPris = 2500 });
             }
 
-            p1.Vis();
-            p1.Slet();
-
+            //p1.Vis();
+            Console.WriteLine("Total mængde memory brugt før garbage collection (kB)  : " + $"{(GC.GetTotalMemory(true)/1_000):n0}");
             p1 = null;
-            System.GC.Collect();
+            //System.GC.Collect();
+            Console.WriteLine("Total mængde memory brugt efter garbage collection (kB): " + $"{(GC.GetTotalMemory(true)/1_000):n0}");
 
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 
@@ -34,9 +34,6 @@ namespace opgave30
         public virtual void Vis()
         {
         }
-        //public virtual void Slet()
-        //{
-        //}
     }
 
     public class Kursist : Person
@@ -50,10 +47,6 @@ namespace opgave30
             Console.WriteLine("Kursistnummer: " + this.KursistNummer);
             Console.WriteLine("Kursus pris: " + this.KursusPris);
         }
-        //    public override void Slet()
-        //    {
-        //        //this = null;
-        //    }
     }
 
     public class Instruktør : Person
@@ -67,10 +60,6 @@ namespace opgave30
             Console.WriteLine("Instruktørnummer: " + this.InstruktørNummer);
             Console.WriteLine("Instruktør løn: " + this.Løn);
         }
-        //public override void Slet()
-        //{
-        //    //this = null;
-        //}
     }
 
     public class Person1
@@ -91,17 +80,6 @@ namespace opgave30
             }
         }
 
-        public void Slet()
-        {
-            //foreach (var item in PersonListe)
-            //{
-            //    item.Slet();
-            //}
-            //PersonListe.Clear();
-            //PersonListe.TrimExcess();
-            this.PersonListe = new List<Person>();
-
-        }
     }
 
 }
