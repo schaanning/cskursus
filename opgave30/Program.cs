@@ -11,7 +11,7 @@ namespace opgave30
         static void Main(string[] args)
         {
             Person1 p1 = new Person1();
-            for (int i = 0; i < 10000; i++)
+            for (int i = 0; i < 5000; i++)
             {
                 p1.TilføjPerson(new Instruktør() { Navn = "Rolf", Alder = 42, InstruktørNummer = 101, Løn = 10000 });
                 p1.TilføjPerson(new Kursist() { Navn = "Karina", Alder = 47, KursistNummer = 201, KursusPris = 2500 });
