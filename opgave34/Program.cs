@@ -16,16 +16,19 @@ namespace opgave31
             Console.WriteLine("Resultat: " + res);
 
             //Lav en vent her.
+            System.Threading.Thread.Sleep(326);
 
             res = Beregner(2, 4, FindTilfældigFunktion());
             Console.WriteLine("Resultat: " + res);
 
             //Lav en vent her.
+            System.Threading.Thread.Sleep(326);
 
             res = Beregner(2, 4, FindTilfældigFunktion());
             Console.WriteLine("Resultat: " + res);
 
             //Lav en vent her.
+            System.Threading.Thread.Sleep(326);
 
             res = Beregner(8, 4, FindTilfældigFunktion());
             Console.WriteLine("Resultat: " + res);
